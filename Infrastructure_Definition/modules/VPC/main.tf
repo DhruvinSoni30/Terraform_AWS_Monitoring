@@ -57,7 +57,7 @@ resource "aws_subnet" "publicSubnetAz2" {
 resource "aws_subnet" "publicSubnetAz3" {
   vpc_id                  = aws_vpc.demoVpc.id
   cidr_block              = var.publicSubnetAz3CIDR
-  availability_zone       = data.aws_availability_zones.availableZones.names[1]
+  availability_zone       = data.aws_availability_zones.availableZones.names[2]
   map_public_ip_on_launch = true
 
   tags = {
