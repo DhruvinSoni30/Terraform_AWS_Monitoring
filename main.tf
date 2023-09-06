@@ -76,5 +76,9 @@ module "alarms" {
   lowCpuUtilizationThreshold     = var.lowCpuUtilizationThreshold
   lowCpuCreditBalancePeriod      = var.lowCpuCreditBalancePeriod
   lowCpuCreditBalanceThroshold   = var.lowCpuCreditBalanceThroshold
+  loadBalancerARN                = module.alb.albARN
+  targetGroupARN                 = module.alb.targetGroupARN
+  instanceAvailableCountPeriod = var.instanceAvailableCountPeriod
+  instanceAvailableCountThreshold = var.instanceAvailableCountThreshold
 }
 

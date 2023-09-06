@@ -41,65 +41,90 @@ variable "nodeVolumeSize" {
   type = string
 }
 
+# cpuUsageAlarmPeriod
 variable "cpuUsageAlarmPeriod" {
   type    = string
   default = "300"
 }
 
+# cpuUsageAlarmThreshold
 variable "cpuUsageAlarmThreshold" {
   type    = string
   default = "80"
 }
 
+# statusFailedAlarmPeriod
 variable "statusFailedAlarmPeriod" {
   type    = string
   default = "60"
 }
 
+# statusFailedAlarmThreshold
 variable "statusFailedAlarmThreshold" {
   type    = string
   default = "1"
 }
 
+# memoryUtilizationTimePeriod
 variable "memoryUtilizationTimePeriod" {
   type    = string
   default = "60"
 }
 
+# memoryUtilizationTimeThreshold
 variable "memoryUtilizationTimeThreshold" {
   type    = string
   default = "80"
 }
 
+# highCpuUtilizationPeriod
 variable "highCpuUtilizationPeriod" {
   type    = string
   default = "60"
 }
 
+# highCpuUtilizationThreshold
 variable "highCpuUtilizationThreshold" {
   type    = string
   default = "80"
 }
 
+# lowCpuUtilizationPeriod
 variable "lowCpuUtilizationPeriod" {
   type    = string
   default = "300"
 }
 
+# lowCpuUtilizationThreshold
 variable "lowCpuUtilizationThreshold" {
   type    = string
   default = "0"
 }
 
+# lowCpuCreditBalancePeriod
 variable "lowCpuCreditBalancePeriod" {
   type    = string
   default = "300"
 }
 
+# lowCpuCreditBalanceThroshold
 variable "lowCpuCreditBalanceThroshold" {
   type    = string
   default = "0"
 }
+
+# instanceAvailableCountPeriod
+variable "instanceAvailableCountPeriod" {
+  type    = string
+  default = "60"
+}
+
+# instanceAvailableCountThreshold
+variable "instanceAvailableCountThreshold" {
+  type    = string
+  default = "0"
+}
+
 # SSH Access
 variable "sshAccess" {
   type = list(string)

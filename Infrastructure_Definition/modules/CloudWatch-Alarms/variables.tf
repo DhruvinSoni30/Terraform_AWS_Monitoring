@@ -67,3 +67,23 @@ variable "lowCpuCreditBalancePeriod" {
 variable "lowCpuCreditBalanceThroshold" {
   type = string
 }
+
+# Load Balancer ARN
+variable "loadBalancerARN" {
+  type = string
+}
+
+# Target Group ARN
+variable "targetGroupARN" {
+  type = string
+}
+
+# instanceAvailableCountPeriod
+variable "instanceAvailableCountPeriod" {
+  type = string
+}
+
+# instanceAvailableCountThreshold
+variable "instanceAvailableCountThreshold" {
+  type = string
+}

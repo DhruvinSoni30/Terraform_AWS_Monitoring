@@ -122,3 +122,23 @@ resource "aws_cloudwatch_metric_alarm" "cpu_credit_alarm" {
   }
   alarm_actions = [aws_sns_topic.cwAlarmsTopic.arn]
 }
+
+# When Target Group Instance Count goes to 0
+resource "aws_cloudwatch_metric_alarm" "instance_count_alarm" {
+  count               = var.instanceCount
+  alarm_name          = "TargetGroupInstances-Alarm-${element(split(",", var.instancesIds), count.index)}"
+  comparison_operator = "LessThanOrEqualToThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "HealthyHostCount"
+  namespace           = "AWS/ApplicationELB"
+  period              = var.instanceAvailableCountPeriod
+  statistic           = "Average"
+  threshold           = var.instanceAvailableCountThreshold
+  alarm_description   = "Alarm when target group instance count goes to 0"
+
+  dimensions = {
+    LoadBalancer = var.loadBalancerARN
+    TargetGroup  = var.targetGroupARN
+  }
+  alarm_actions = [aws_sns_topic.cwAlarmsTopic.arn]
+}
