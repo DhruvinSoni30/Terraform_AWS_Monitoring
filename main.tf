@@ -61,24 +61,26 @@ module "key_pair" {
 
 # Creating Cloud Watch Alarms
 module "alarms" {
-  source                         = "./Infrastructure_Definition/modules/CloudWatch-Alarms"
-  instanceCount                  = var.nodeDesiredCapacity
-  instancesIds                   = module.asg.instanceIds
-  cpuUsageAlarmPeriod            = var.cpuUsageAlarmPeriod
-  cpuUsageAlarmThreshold         = var.cpuUsageAlarmThreshold
-  statusFailedAlarmPeriod        = var.statusFailedAlarmPeriod
-  statusFailedAlarmThreshold     = var.statusFailedAlarmThreshold
-  memoryUtilizationTimePeriod    = var.memoryUtilizationTimePeriod
-  memoryUtilizationTimeThreshold = var.memoryUtilizationTimeThreshold
-  highCpuUtilizationPeriod       = var.highCpuUtilizationPeriod
-  highCpuUtilizationThreshold    = var.highCpuUtilizationThreshold
-  lowCpuUtilizationPeriod        = var.lowCpuUtilizationPeriod
-  lowCpuUtilizationThreshold     = var.lowCpuUtilizationThreshold
-  lowCpuCreditBalancePeriod      = var.lowCpuCreditBalancePeriod
-  lowCpuCreditBalanceThroshold   = var.lowCpuCreditBalanceThroshold
-  loadBalancerARN                = module.alb.albARN
-  targetGroupARN                 = module.alb.targetGroupARN
-  instanceAvailableCountPeriod = var.instanceAvailableCountPeriod
+  source                          = "./Infrastructure_Definition/modules/CloudWatch-Alarms"
+  instanceCount                   = var.nodeDesiredCapacity
+  instancesIds                    = module.asg.instanceIds
+  cpuUsageAlarmPeriod             = var.cpuUsageAlarmPeriod
+  cpuUsageAlarmThreshold          = var.cpuUsageAlarmThreshold
+  statusFailedAlarmPeriod         = var.statusFailedAlarmPeriod
+  statusFailedAlarmThreshold      = var.statusFailedAlarmThreshold
+  memoryUtilizationTimePeriod     = var.memoryUtilizationTimePeriod
+  memoryUtilizationTimeThreshold  = var.memoryUtilizationTimeThreshold
+  highCpuUtilizationPeriod        = var.highCpuUtilizationPeriod
+  highCpuUtilizationThreshold     = var.highCpuUtilizationThreshold
+  lowCpuUtilizationPeriod         = var.lowCpuUtilizationPeriod
+  lowCpuUtilizationThreshold      = var.lowCpuUtilizationThreshold
+  lowCpuCreditBalancePeriod       = var.lowCpuCreditBalancePeriod
+  lowCpuCreditBalanceThroshold    = var.lowCpuCreditBalanceThroshold
+  loadBalancerARN                 = module.alb.albARN
+  targetGroupARN                  = module.alb.targetGroupARN
+  instanceAvailableCountPeriod    = var.instanceAvailableCountPeriod
   instanceAvailableCountThreshold = var.instanceAvailableCountThreshold
+  estimatedChargesPeriod          = var.estimatedChargesPeriod
+  estimatedChargesThreshold       = var.estimatedChargesThreshold
 }
 

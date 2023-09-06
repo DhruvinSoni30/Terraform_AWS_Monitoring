@@ -125,6 +125,18 @@ variable "instanceAvailableCountThreshold" {
   default = "0"
 }
 
+# estimatedChargesPeriod
+variable "estimatedChargesPeriod" {
+  type    = string
+  default = "86400"
+}
+
+# estimatedChargesThreshold
+variable "estimatedChargesThreshold" {
+  type    = string
+  default = "100"
+}
+
 # SSH Access
 variable "sshAccess" {
   type = list(string)

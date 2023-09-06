@@ -142,3 +142,21 @@ resource "aws_cloudwatch_metric_alarm" "instance_count_alarm" {
   }
   alarm_actions = [aws_sns_topic.cwAlarmsTopic.arn]
 }
+
+# When AWS charges go above $100
+resource "aws_cloudwatch_metric_alarm" "estimated_charges_100" {
+  alarm_name          = "estimated-charges-100"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "EstimatedCharges"
+  namespace           = "AWS/Billing"
+  period              = var.estimatedChargesPeriod
+  statistic           = "Maximum"
+  threshold           = var.estimatedChargesThreshold
+  alarm_description   = "Alarm when AWS charges go above $100"
+  alarm_actions       = [aws_sns_topic.cwAlarmsTopic.arn]
+
+  dimensions = {
+    Currency = "USD"
+  }
+}

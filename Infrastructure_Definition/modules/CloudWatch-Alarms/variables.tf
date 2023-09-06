@@ -87,3 +87,13 @@ variable "instanceAvailableCountPeriod" {
 variable "instanceAvailableCountThreshold" {
   type = string
 }
+
+# estimatedChargesPeriod
+variable "estimatedChargesPeriod" {
+  type = string
+}
+
+# estimatedChargesThreshold
+variable "estimatedChargesThreshold" {
+  type = string
+}
