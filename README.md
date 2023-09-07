@@ -1,4 +1,4 @@
-# Creating Infrastructure on AWS and monitoring solutions using Terraform Modules
+# Implementing Monitoring solution for AWS Infrastructure using various CloudWatch Alarms 
 
 * Cloudwatch alarm is used to monitor a single cloud watch metric or the result of Match expression using cloud watch metrics. Also, it sends out a notification based on the threshold we set for each service in the cloud watch alarm. You can actively monitor the status of each alarm in the cloud watch dashboard.
   
