@@ -46,26 +46,6 @@ resource "aws_cloudwatch_metric_alarm" "status-failed-alarms" {
   alarm_actions = [aws_sns_topic.cwAlarmsTopic.arn]
 }
 
-
-# When Memory Utilization: >=80% for more than 300 seconds.
-resource "aws_cloudwatch_metric_alarm" "memory_utilization_alarm" {
-  count               = var.instanceCount
-  alarm_name          = "MemoryUtilizationHigh-Alarm-${element(split(",", var.instancesIds), count.index)}"
-  comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = "5"
-  metric_name         = "MemoryUtilization"
-  namespace           = "CWAgent"
-  period              = var.memoryUtilizationTimePeriod
-  statistic           = "Average"
-  threshold           = var.memoryUtilizationTimeThreshold
-  alarm_description   = "Memory Utilization is above 80% for 5 minutes"
-
-  dimensions = {
-    InstanceId = "${element(split(",", var.instancesIds), count.index)}"
-  }
-  alarm_actions = [aws_sns_topic.cwAlarmsTopic.arn]
-}
-
 # When CPU Utilization >= 80% for more than 300 seconds.
 resource "aws_cloudwatch_metric_alarm" "high_cpu_utilization_alarm" {
   count               = var.instanceCount
