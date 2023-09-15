@@ -107,14 +107,14 @@ resource "aws_cloudwatch_metric_alarm" "cpu_credit_alarm" {
 resource "aws_cloudwatch_metric_alarm" "instance_count_alarm" {
   count               = var.instanceCount
   alarm_name          = "TargetGroupInstances-Alarm-${element(split(",", var.instancesIds), count.index)}"
-  comparison_operator = "LessThanOrEqualToThreshold"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "UnHealthyHostCount"
   namespace           = "AWS/ApplicationELB"
   period              = var.instanceAvailableCountPeriod
   statistic           = "Maximum"
   threshold           = var.instanceAvailableCountThreshold
-  alarm_description   = "Alarm when target group instance count goes to 0"
+  alarm_description   = "Alarm when unhealthy instance in the target group is greater then 2 for 1 minute."
 
   dimensions = {
     LoadBalancer = var.loadBalancerARN
