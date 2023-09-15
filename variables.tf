@@ -122,7 +122,7 @@ variable "instanceAvailableCountPeriod" {
 # instanceAvailableCountThreshold
 variable "instanceAvailableCountThreshold" {
   type    = string
-  default = "0"
+  default = "2"
 }
 
 # estimatedChargesPeriod
