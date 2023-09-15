@@ -109,10 +109,10 @@ resource "aws_cloudwatch_metric_alarm" "instance_count_alarm" {
   alarm_name          = "TargetGroupInstances-Alarm-${element(split(",", var.instancesIds), count.index)}"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "1"
-  metric_name         = "HealthyHostCount"
+  metric_name         = "UnHealthyHostCount"
   namespace           = "AWS/ApplicationELB"
   period              = var.instanceAvailableCountPeriod
-  statistic           = "Average"
+  statistic           = "Maximum"
   threshold           = var.instanceAvailableCountThreshold
   alarm_description   = "Alarm when target group instance count goes to 0"
 
